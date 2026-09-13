@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>pb_serial_comm</name>
+  <version>1.0.0</version>
+  <description>串口通信功能包：上位机与下位机 STM32 通过虚拟串口（USB CDC，/dev/ttyACM*）收发
+    二进制帧，把 ROS 话题（cmd_vel/云台/射击）打包下发，并接收底盘状态/云台状态/裁判系统数据
+    回传发布成话题。</description>
+  <maintainer email="lihanchen2004@163.com">Lihan Chen</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>example_interfaces</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

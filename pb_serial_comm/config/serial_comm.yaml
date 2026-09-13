@@ -1,0 +1,19 @@
+serial_comm:
+  ros__parameters:
+    # 串口设备（USB 虚拟串口）。STM32 USB CDC 通常是 /dev/ttyACM0，
+    # 若是 CH340/CP2102 等 USB 转串口芯片则是 /dev/ttyUSB0。用 `ls /dev/tty*` 确认。
+    device: "/dev/ttyACM0"
+    baud_rate: 115200
+
+    # 话题名（上位机 -> 下位机，订阅）
+    cmd_vel_topic: "cmd_vel"               # geometry_msgs/Twist -> CMD_CHASSIS_VEL(0x01)
+    gimbal_topic: "cmd_gimbal_joint"       # sensor_msgs/JointState -> CMD_GIMBAL(0x02)
+    shoot_topic: "cmd_shoot"               # example_interfaces/UInt8 -> CMD_SHOOT(0x03)
+
+    # 话题名（下位机 -> 上位机，发布）
+    chassis_odom_topic: "chassis_odometry" # CMD_CHASSIS_STATE(0x10) -> nav_msgs/Odometry
+    gimbal_state_topic: "gimbal_state"     # CMD_GIMBAL_STATE(0x11) -> sensor_msgs/JointState
+    referee_topic: "referee_data"          # CMD_REFEREE_DATA(0x12) -> std_msgs/UInt8MultiArray
+
+    odom_frame: "odom"
+    base_frame: "base_footprint"
